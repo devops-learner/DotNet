@@ -1,0 +1,9 @@
+/Shop/packages
+/Shop/packages/*
+/Shop/Shop/bin/*
+/Shop/Shop/obj/*
+/Shop/Shop.Data/obj/*
+/Shop/Shop.Data/bin/*
+/Shop/Shop.Services/obj/*
+/Shop/Shop.Services/bin/*
+Shop/Shop/App_Data/aspnet*

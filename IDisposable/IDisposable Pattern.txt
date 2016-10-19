@@ -6,7 +6,7 @@
     GC.SuppressFinalize(this);
   }
   
-  ~Repository_General()
+  ~ClassName()
   {
     Dispose(false);
   }
