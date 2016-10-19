@@ -15,7 +15,7 @@ namespace Shop
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            app.Map("idm", idm =>
+            app.Map("/idm", idm =>
             {
                 var factory = new IdentityManagerServiceFactory();
                 factory.IdentityManagerService = new Registration<IIdentityManagerService, ApplicationIdentityManagerService>();

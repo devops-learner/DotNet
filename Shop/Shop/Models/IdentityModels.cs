@@ -24,6 +24,10 @@ namespace Shop.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        //public ApplicationDbContext(string connectionString):base(connectionString)
+        //{
+
+        //}
 
         public static ApplicationDbContext Create()
         {
