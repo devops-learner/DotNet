@@ -6,4 +6,6 @@
 /Shop/Shop.Data/bin/*
 /Shop/Shop.Services/obj/*
 /Shop/Shop.Services/bin/*
+*/obj/*
+*/bin/*
 Shop/Shop/App_Data/aspnet*
