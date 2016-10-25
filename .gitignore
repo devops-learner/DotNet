@@ -4,8 +4,8 @@
 /Shop/Shop/obj/*
 /Shop/Shop.Data/obj/*
 /Shop/Shop.Data/bin/*
-/Shop/Shop.Services/obj/*
 /Shop/Shop.Services/bin/*
-*/obj/*
-*/bin/*
+/Shop/Shop.Services/obj/*
+/Shop/*/obj/*
+/Shop/*/bin/*
 Shop/Shop/App_Data/aspnet*
