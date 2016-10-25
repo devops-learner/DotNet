@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity;
 using Shop.Models;
 using IdentityManager;
+using Shop.Data.Context;
 
 [assembly: OwinStartupAttribute(typeof(Shop.Startup))]
 namespace Shop

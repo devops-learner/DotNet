@@ -18,11 +18,11 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44371</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <UseGlobalApplicationHostFile />
+    <UseGlobalApplicationHostFile>true</UseGlobalApplicationHostFile>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -208,6 +208,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610190848277_InitialCreate.cs" />
+    <Compile Include="Migrations\201610190848277_InitialCreate.Designer.cs">
+      <DependentUpon>201610190848277_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610200738122_skypeid.cs" />
+    <Compile Include="Migrations\201610200738122_skypeid.Designer.cs">
+      <DependentUpon>201610200738122_skypeid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -281,6 +290,24 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610190848277_InitialCreate.resx">
+      <DependentUpon>201610190848277_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610200738122_skypeid.resx">
+      <DependentUpon>201610200738122_skypeid.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shop.Data\Shop.Data.csproj">
+      <Project>{E967EE76-C78C-44C0-9353-88EE11D131D7}</Project>
+      <Name>Shop.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shop.Models\Shop.Models.csproj">
+      <Project>{70aa7b18-79b1-4a91-9c33-78346011ae64}</Project>
+      <Name>Shop.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -294,12 +321,12 @@
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
-        <WebProjectProperties>
+         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>57414</DevelopmentServerPort>
+          <DevelopmentServerPort>57131</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:57414/</IISUrl>
+          <IISUrl>https://localhost:44371/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

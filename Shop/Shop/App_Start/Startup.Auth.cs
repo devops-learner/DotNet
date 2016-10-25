@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Shop.Models;
+using Shop.Data.Context;
 
 namespace Shop
 {
@@ -63,6 +64,18 @@ namespace Shop
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+
+                //ClientId = "59043001349-l4huvgq3339qv49q5d7l88pg4d7ci0bq.apps.googleusercontent.com",
+                //ClientSecret = "4PZkREXmJISlNwgLI8XedvBY"
+
+                ClientId = "274367350717-hl3cpho0elhg9lo22hdcmpsijl9lc45r.apps.googleusercontent.com",
+                ClientSecret = "krJ8XFCzS-4JP_IdUibJDSRC"
+
+            });
         }
     }
 }
