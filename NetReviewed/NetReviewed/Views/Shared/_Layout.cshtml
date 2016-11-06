@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+
+            var review = {
+                ReviewId: 1,
+                Content: 'It is destined',
+                Topic: 'Life after death',
+                Email: 'mohtshm@jnnat.com',
+                IsAnonymous: true,
+                CategoryId: 1
+            };
+            var comment = {
+                CommentId: 1,
+                Content: 'It is destined',
+                Email: 'mkkrm@jnnat.com',
+                IsAnonymous: true,
+                ReviewId: 1
+            };
+           
+            var category = { CategoryId: 1, Name: 'Realilty' };
+            var urlApi = 'api/category/';
+            var parameterObject = review;
+            $.ajax({
+              //  data: parameterObject,
+                type: 'GET',
+                url: urlApi,
+                success: function (result) { alert('Successfully retrieve'); },
+                error: function () {
+                    alert('failure');
+                }
+            });
+            var getUrl = 'api/review/1';
+            $.ajax({
+                type: 'GET',
+                url: getUrl,
+                success: function (result) { alert('Successfully retrieve' + result.Comments.Length); },
+                error: function () {
+                    alert('failure');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

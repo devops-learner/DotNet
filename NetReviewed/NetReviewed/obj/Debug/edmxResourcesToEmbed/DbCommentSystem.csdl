@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DbCommentSystem" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="DbCommentSystemContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Review" EntityType="DbCommentSystem.Review" />
+    <EntitySet Name="Comment" EntityType="DbCommentSystem.Comment" />
+    <AssociationSet Name="ReviewComment" Association="DbCommentSystem.ReviewComment">
+      <End Role="Review" EntitySet="Review" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <EntitySet Name="Category" EntityType="DbCommentSystem.Category" />
+  </EntityContainer>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="ReviewId" />
+    </Key>
+    <Property Type="Int32" Name="ReviewId" Nullable="false" annotation:StoreGeneratedPattern="Identity" ConcurrencyMode="Fixed" />
+    <Property Type="String" Name="Content" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="false" />
+    <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
+    <Property Type="String" Name="Topic" Nullable="false" />
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <NavigationProperty Name="Comments" Relationship="DbCommentSystem.ReviewComment" FromRole="Review" ToRole="Comment" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Type="Int32" Name="CommentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" ConcurrencyMode="Fixed" />
+    <Property Type="String" Name="Content" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="false" />
+    <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
+    <NavigationProperty Name="Review" Relationship="DbCommentSystem.ReviewComment" FromRole="Comment" ToRole="Review" />
+    <Property Type="Int32" Name="ReviewId" Nullable="false" ConcurrencyMode="Fixed" />
+  </EntityType>
+  <Association Name="ReviewComment">
+    <End Type="DbCommentSystem.Review" Role="Review" Multiplicity="1" />
+    <End Type="DbCommentSystem.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Review">
+        <PropertyRef Name="ReviewId" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="ReviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" />
+  </EntityType>
+</Schema>

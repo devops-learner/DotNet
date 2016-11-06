@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbCommentSystem.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DbCommentSystemStoreContainer">
+    <EntitySet Name="Review" EntityType="DbCommentSystem.Store.Review" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Comment" EntityType="DbCommentSystem.Store.Comment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Category" EntityType="DbCommentSystem.Store.Category" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ReviewComment" Association="DbCommentSystem.Store.ReviewComment">
+      <End Role="Review" EntitySet="Review" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="ReviewId" />
+    </Key>
+    <Property Name="ReviewId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="Topic" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="ReviewId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="ReviewComment">
+    <End Role="Review" Type="DbCommentSystem.Store.Review" Multiplicity="1" />
+    <End Role="Comment" Type="DbCommentSystem.Store.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Review">
+        <PropertyRef Name="ReviewId" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="ReviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

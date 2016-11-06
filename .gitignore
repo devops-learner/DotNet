@@ -9,3 +9,6 @@
 /Shop/*/obj/*
 /Shop/*/bin/*
 Shop/Shop/App_Data/aspnet*
+*/obj/*
+*/bin/*
+*.suo
